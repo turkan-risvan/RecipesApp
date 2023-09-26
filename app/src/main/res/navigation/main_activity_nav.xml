@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/anasayfaFragment">
+
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.example.recipesapp.ui.fragment.AnasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/tarifDetayGecis"
+            app:destination="@id/tarifDetayFragment" />
+        <action
+            android:id="@+id/tarifKayitGecis"
+            app:destination="@id/tarifKayitFragment" />
+        <action
+            android:id="@+id/tarifGuncelleGecis"
+            app:destination="@id/tarifGuncelleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tarifDetayFragment"
+        android:name="com.example.recipesapp.ui.fragment.TarifDetayFragment"
+        android:label="fragment_tarif_detay"
+        tools:layout="@layout/fragment_tarif_detay" >
+        <argument
+            android:name="tarif"
+            app:argType="com.example.recipesapp.data.entity.Tarifler" />
+    </fragment>
+    <fragment
+        android:id="@+id/tarifKayitFragment"
+        android:name="com.example.recipesapp.ui.fragment.TarifKayitFragment"
+        android:label="fragment_tarif_kayit"
+        tools:layout="@layout/fragment_tarif_kayit" />
+    <fragment
+        android:id="@+id/tarifGuncelleFragment"
+        android:name="com.example.recipesapp.ui.fragment.TarifGuncelleFragment"
+        android:label="TarifGuncelleFragment" >
+        <argument
+            android:name="tarif"
+            app:argType="com.example.recipesapp.data.entity.Tarifler" />
+    </fragment>
+</navigation>
