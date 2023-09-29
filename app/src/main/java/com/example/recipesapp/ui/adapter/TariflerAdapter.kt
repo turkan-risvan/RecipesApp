@@ -78,6 +78,7 @@ class TariflerAdapter(
 
         }
 
+
         Glide.with(context)
             .load("https://images.pexels.com/photos/2092897/pexels-photo-2092897.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load")
             .into(t.imageView5)

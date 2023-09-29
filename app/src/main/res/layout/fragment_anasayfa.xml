@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#03A9F4"
-    android:backgroundTint="#FDFAF6"
+    android:backgroundTint="#DDDDDD"
     tools:context=".ui.fragment.AnasayfaFragment">
 
 
@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="90dp"
-        android:clickable="true"
 
+        android:clickable="true"
         android:src="@drawable/ekle_icon"
         android:tint="@color/white"
         app:backgroundTint="#FF9800"
@@ -39,13 +39,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="361dp"
+        android:layout_height="577dp"
 
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfa"
         app:layout_constraintVertical_bias="0.0" />
@@ -53,12 +55,14 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btm_nav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
+        android:layout_marginTop="19dp"
         android:background="#F6F5F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fab"
         app:menu="@menu/btm_menu" />
 
 
