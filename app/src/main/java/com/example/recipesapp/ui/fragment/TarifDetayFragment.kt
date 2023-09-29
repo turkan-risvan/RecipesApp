@@ -6,34 +6,74 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.example.recipesapp.R
 
 
 import com.example.recipesapp.databinding.FragmentTarifDetayBinding
+import com.example.recipesapp.ui.adapter.TariflerAdapter
+import com.example.recipesapp.ui.viewmodel.AnasayfaViewModel
+import com.example.recipesapp.ui.viewmodel.TarifDetayViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TarifDetayFragment : Fragment() {
-    private lateinit var tasarim : FragmentTarifDetayBinding
+
+    private lateinit var tasarim: FragmentTarifDetayBinding
+    private lateinit var viewModel: TarifDetayViewModel
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-       tasarim = FragmentTarifDetayBinding.inflate(inflater,container,false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        tasarim = FragmentTarifDetayBinding.inflate(inflater, container, false)
+
 
         tasarim.toolbarTarifDetay.title = "Tarif Detay"
+        (activity as AppCompatActivity).setSupportActionBar(tasarim.toolbarTarifDetay)
 
 
-//Argümanları aldık
+        // ViewModel'i başlat
+         viewModel = ViewModelProvider(this).get(TarifDetayViewModel::class.java)
+
+        // ViewModel'den API'den verileri alma işlemi
         val bundle: TarifDetayFragmentArgs by navArgs()
-        val gelenTarif = bundle.tarif
+        val gelenTarifId = bundle.detayTarif
+         viewModel.getTarifDetay(gelenTarifId)
 
-        tasarim.textViewTarifAd.setText(gelenTarif.name)
-        tasarim.textViewTarifYapilis .setText(gelenTarif.description)
-       // tasarim.editTextTarifNo.setText(gelenTarif.id)
+        // ViewModel tarafından gönderilen verileri gözlemle
+            viewModel.tarifDetayLiveData.observe(viewLifecycleOwner) { detay ->
+            tasarim.textViewTarifAd.text = detay.recipe.name
+            tasarim.textViewTarifYapilis.text = detay.recipe.description
 
 
+        }
 
-        return  tasarim.root
+
+        return tasarim.root
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val fragmentImageView = view.findViewById<ImageView>(R.id.imageView3)
+        if (fragmentImageView != null) {
+            // ImageView'e resmi Glide ile yükleme
+            val imageUrl =
+                "https://images.pexels.com/photos/1213710/pexels-photo-1213710.jpeg?auto=compress&cs=tinysrgb&w=1600" // Resmin URL'si
+            Glide.with(this)
+                .load(imageUrl)
+                .into(fragmentImageView)
+        }
+    }
 
 }

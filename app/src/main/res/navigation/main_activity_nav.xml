@@ -26,8 +26,8 @@
         android:label="fragment_tarif_detay"
         tools:layout="@layout/fragment_tarif_detay" >
         <argument
-            android:name="tarif"
-            app:argType="com.example.recipesapp.data.entity.Tarifler" />
+            android:name="detayTarif"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/tarifKayitFragment"
@@ -39,7 +39,7 @@
         android:name="com.example.recipesapp.ui.fragment.TarifGuncelleFragment"
         android:label="TarifGuncelleFragment" >
         <argument
-            android:name="tarif"
-            app:argType="com.example.recipesapp.data.entity.Tarifler" />
+            android:name="detayTarif"
+            app:argType="integer" />
     </fragment>
 </navigation>

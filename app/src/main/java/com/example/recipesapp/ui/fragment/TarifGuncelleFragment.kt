@@ -6,43 +6,68 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.recipesapp.R
+import com.example.recipesapp.data.entity.Tarifler
 import com.example.recipesapp.databinding.FragmentTarifDetayBinding
 import com.example.recipesapp.databinding.FragmentTarifGuncelleBinding
+import com.example.recipesapp.ui.viewmodel.AnasayfaViewModel
+import com.example.recipesapp.ui.viewmodel.TarifDetayViewModel
+import com.example.recipesapp.ui.viewmodel.TarifGuncelleViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TarifGuncelleFragment : Fragment() {
-    private lateinit var tasarim : FragmentTarifGuncelleBinding
+    private lateinit var tasarim: FragmentTarifGuncelleBinding
+    private lateinit var viewModel: TarifGuncelleViewModel
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        tasarim = FragmentTarifGuncelleBinding.inflate(inflater, container, false)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        tasarim = FragmentTarifGuncelleBinding.inflate(inflater,container,false)
+        tasarim.toolbarTarifGuncelle.title = "Tarif Güncelle"
 
-        tasarim.toolbarTarifDetay.title = "Tarif Güncelle"
+        (activity as AppCompatActivity).setSupportActionBar(tasarim.toolbarTarifGuncelle)
+
+
+        // ViewModel'i başlat
+        viewModel = ViewModelProvider(this).get(TarifGuncelleViewModel::class.java)
 
         //Argümanları aldık
-        val bundle: TarifDetayFragmentArgs by navArgs()
-        val gelenTarif = bundle.tarif
+        val bundle: TarifGuncelleFragmentArgs by navArgs()
+        val gelenTarif = bundle.detayTarif
+        viewModel.getTarifDetay(gelenTarif)
+        // ViewModel tarafından gönderilen verileri gözlemle
+      viewModel.tarifDetayLiveData.observe(viewLifecycleOwner) { detay ->
+            tasarim.editTextTarifAd.setText(detay.recipe.name)
+            tasarim.textViewTarifYapilis.setText(detay.recipe.description)
 
-        tasarim.editTextTarifAd.setText(gelenTarif.name)
-        tasarim.editTextTarifDetay.setText(gelenTarif.description)
-        // tasarim.editTextTarifNo.setText(gelenTarif.id)
 
+        }
 
         tasarim.buttonGuncelle.setOnClickListener {
             val name = tasarim.editTextTarifAd.text.toString()
-            // val id = tasarim.editTextTarifNo.text.toString()
-            val description = tasarim.editTextTarifDetay.text.toString()
+            val description = tasarim.textViewTarifYapilis.text.toString()
+            val tarif = Tarifler(gelenTarif,name,description)
 
-
-            guncelle(gelenTarif.id,name,description)
+            buttonGuncelle(tarif)
         }
-        return  tasarim.root
+        return tasarim.root
     }
 
-    fun guncelle(id : Int,name:String,description:String){
-
-        Log.e("Tarif Güncelle","$id - $name - $description")
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val tempViewModel: TarifGuncelleViewModel by viewModels()
+        viewModel = tempViewModel
     }
+
+    fun buttonGuncelle(request: Tarifler) {
+       viewModel.getTarifGuncelle(request)
+    }
+
 }

@@ -8,10 +8,10 @@
 
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTarifDetay"
+        android:id="@+id/toolbarTarifGuncelle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#FF9800"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
         android:layout_marginEnd="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarTarifDetay">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarTarifGuncelle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextTarifAd"
@@ -50,29 +50,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextTarifDetay"
+            android:id="@+id/textViewTarifYapilis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tarif Detay Giriniz " />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="325dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextTarifNo"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:hint="Tarif Numarası Giriniz" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/buttonGuncelle"
@@ -81,9 +64,11 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="38dp"
         android:layout_marginEnd="40dp"
+        android:backgroundTint="#FF9800"
         android:text="Güncelle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

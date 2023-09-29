@@ -1,21 +1,24 @@
 package com.example.recipesapp.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.recipesapp.R
-import com.example.recipesapp.databinding.FragmentTarifDetayBinding
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import com.example.recipesapp.data.entity.Tarifler
 import com.example.recipesapp.databinding.FragmentTarifKayitBinding
+import com.example.recipesapp.ui.viewmodel.TarifKayitViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TarifKayitFragment : Fragment() {
-    private lateinit var tasarim : FragmentTarifKayitBinding
-
+    private lateinit var tasarim: FragmentTarifKayitBinding
+    private lateinit var viewModel: TarifKayitViewModel
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
 
         tasarim = FragmentTarifKayitBinding.inflate(inflater, container, false)
 
@@ -24,15 +27,24 @@ class TarifKayitFragment : Fragment() {
 
         tasarim.buttonKaydet.setOnClickListener {
             val name = tasarim.editTextTarifAd.text.toString()
-            val id = tasarim.editTextTarifNo.text.toString()
+            val description = tasarim.editTextTarifNo.text.toString()
+            val tarif = Tarifler(0, name, description)
+            buttonKaydet(tarif)
 
-         buttonKaydet(name, id)
         }
- return  tasarim.root
+
+        return tasarim.root
     }
-    fun buttonKaydet(name:String, id :String){
-        Log.e("Tarif Kayıt","$id - $name ")
-}
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val tempViewModel: TarifKayitViewModel by viewModels()
+        viewModel = tempViewModel
+    }
+
+    fun buttonKaydet(request: Tarifler) {
+        viewModel.kayit(request)
+    }
 
 
 }
