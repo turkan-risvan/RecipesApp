@@ -37,7 +37,7 @@ class TarifDetayFragment : Fragment() {
         tasarim = FragmentTarifDetayBinding.inflate(inflater, container, false)
 
 
-        tasarim.toolbarTarifDetay.title = "Tarif Detay"
+        tasarim.toolbarTarifDetay.title = "Tarif"
         (activity as AppCompatActivity).setSupportActionBar(tasarim.toolbarTarifDetay)
 
 

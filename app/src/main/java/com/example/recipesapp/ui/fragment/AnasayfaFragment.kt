@@ -42,7 +42,7 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
 
         tasarim = FragmentAnasayfaBinding.inflate(inflater, container, false)
 
-        tasarim.toolbarAnasayfa.title = "Tarifler"
+        tasarim.toolbarAnasayfa.title = "Yemekler"
         (activity as AppCompatActivity).setSupportActionBar(tasarim.toolbarAnasayfa)
 
         tasarim.rv.layoutManager = LinearLayoutManager(requireContext())

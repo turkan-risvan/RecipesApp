@@ -12,3 +12,6 @@ fun Navigation.gecisYap(it:View,id:NavDirections){
     findNavController(it).navigate(id)
 }
 
+fun Navigation.anasayfaGecisYap(it:View,id:NavDirections){
+    findNavController(it).navigate(id)
+}

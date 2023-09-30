@@ -22,7 +22,7 @@ class TarifKayitFragment : Fragment() {
 
         tasarim = FragmentTarifKayitBinding.inflate(inflater, container, false)
 
-        tasarim.toolbarTarifKayit.title = "Tarif Kayıt"
+        tasarim.toolbarTarifKayit.title = "Yemek Kayıt"
 
 
         tasarim.buttonKaydet.setOnClickListener {

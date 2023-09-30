@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -80,7 +81,7 @@ class TariflerAdapter(
 
 
         Glide.with(context)
-            .load("https://images.pexels.com/photos/2092897/pexels-photo-2092897.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load")
+            .load("https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
             .into(t.imageView5)
     }
 
