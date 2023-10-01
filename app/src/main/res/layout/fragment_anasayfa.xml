@@ -33,6 +33,7 @@
         android:src="@drawable/ekle_icon"
         android:tint="@color/white"
         app:backgroundTint="#FF9800"
+        app:borderWidth="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -47,7 +48,6 @@
         android:layout_marginBottom="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfa"
         app:layout_constraintVertical_bias="0.0" />

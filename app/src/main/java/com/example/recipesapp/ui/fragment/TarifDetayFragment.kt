@@ -1,15 +1,12 @@
 package com.example.recipesapp.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -17,8 +14,7 @@ import com.example.recipesapp.R
 
 
 import com.example.recipesapp.databinding.FragmentTarifDetayBinding
-import com.example.recipesapp.ui.adapter.TariflerAdapter
-import com.example.recipesapp.ui.viewmodel.AnasayfaViewModel
+
 import com.example.recipesapp.ui.viewmodel.TarifDetayViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -55,6 +51,7 @@ class TarifDetayFragment : Fragment() {
             tasarim.textViewTarifYapilis.text = detay.recipe.description
 
 
+
         }
 
 
@@ -65,6 +62,7 @@ class TarifDetayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val fragmentImageView = view.findViewById<ImageView>(R.id.imageView3)
         if (fragmentImageView != null) {
             // ImageView'e resmi Glide ile yükleme
@@ -74,6 +72,12 @@ class TarifDetayFragment : Fragment() {
                 .load(imageUrl)
                 .into(fragmentImageView)
         }
+
+
+
+
     }
+
+
 
 }

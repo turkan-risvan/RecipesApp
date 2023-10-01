@@ -1,5 +1,6 @@
 package com.example.recipesapp.ui.fragment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,15 +25,35 @@ class TarifKayitFragment : Fragment() {
 
         tasarim.toolbarTarifKayit.title = "Yemek Kayıt"
 
-
+        val alert = AlertDialog.Builder(requireContext())
         tasarim.buttonKaydet.setOnClickListener {
             val name = tasarim.editTextTarifAd.text.toString()
             val description = tasarim.editTextTarifNo.text.toString()
-            val tarif = Tarifler(0, name, description)
-            buttonKaydet(tarif)
+
+            if (!name.equals("") && !description.equals("")) {
+                alert.setMessage("${name.uppercase()} eklensin mi ?")
+                alert.setPositiveButton("Evet") {dialog,which ->
+                    val tarif = Tarifler(0, name, description)
+                    buttonKaydet(tarif)
+
+                    Toast.makeText(requireContext(), "${name.uppercase()} Eklendi", Toast.LENGTH_LONG)
+                        .show()
+                }
+                alert.setNegativeButton("Hayır") {dialog,which ->
+                    val tarif = Tarifler(0, name, description)
+                    buttonKaydet(tarif)
+
+                    Toast.makeText(requireContext(), "${name.uppercase()} Eklendi", Toast.LENGTH_LONG)
+                        .show()
+                }
+              alert.show()
+
+            }
+            else{
+                Toast.makeText(requireContext(),"Alanlar Boş Bırakılamaz!",Toast.LENGTH_LONG).show()
+            }
 
         }
-
         return tasarim.root
     }
 

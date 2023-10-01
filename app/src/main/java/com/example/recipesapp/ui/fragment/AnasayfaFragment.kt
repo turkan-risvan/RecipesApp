@@ -1,5 +1,6 @@
 package com.example.recipesapp.ui.fragment
 
+import TariflerAdapter
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -23,7 +24,7 @@ import com.bumptech.glide.Glide
 import com.example.recipesapp.R
 import com.example.recipesapp.data.entity.Tarifler
 import com.example.recipesapp.databinding.FragmentAnasayfaBinding
-import com.example.recipesapp.ui.adapter.TariflerAdapter
+
 import com.example.recipesapp.ui.viewmodel.AnasayfaViewModel
 import com.example.recipesapp.util.gecisYap
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,6 +45,8 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
 
         tasarim.toolbarAnasayfa.title = "Yemekler"
         (activity as AppCompatActivity).setSupportActionBar(tasarim.toolbarAnasayfa)
+
+
 
         tasarim.rv.layoutManager = LinearLayoutManager(requireContext())
         val layoutManager = GridLayoutManager(requireContext(), 2) // 2 sütunlu bir grid
