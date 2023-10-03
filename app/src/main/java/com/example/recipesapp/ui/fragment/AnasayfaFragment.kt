@@ -51,13 +51,11 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
         tasarim.rv.layoutManager = LinearLayoutManager(requireContext())
         val layoutManager = GridLayoutManager(requireContext(), 2) // 2 sütunlu bir grid
         tasarim.rv.layoutManager = layoutManager
+
         viewModel.tariflerListesi.observe(viewLifecycleOwner) {
             val adapter = TariflerAdapter(requireContext(), it)
             tasarim.rv.adapter = adapter
         }
-
-
-
 
 
         tasarim.fab.setOnClickListener {

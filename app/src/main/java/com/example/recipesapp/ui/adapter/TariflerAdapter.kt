@@ -73,7 +73,7 @@ class TariflerAdapter(
             "https://images.pexels.com/photos/750941/pexels-photo-750941.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
         )
 
-        // position değerini resimListesi boyutuna uygun hale getirin
+        // position değerini resimListesi boyutuna uygun hale getirme işlemi yaptım.
         val adjustedPosition = position % resimList.size
 
         val resimUrl = resimList[adjustedPosition]

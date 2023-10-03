@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_nav"
-    app:startDestination="@id/anasayfaFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/anasayfaFragment"
@@ -41,5 +41,13 @@
         <argument
             android:name="detayTarif"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="SplashScreenFragment"
+        android:label="SplashScreenFragment" >
+        <action
+            android:id="@+id/splashAnasayayaGecis"
+            app:destination="@id/anasayfaFragment" />
     </fragment>
 </navigation>

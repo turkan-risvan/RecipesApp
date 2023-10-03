@@ -33,7 +33,7 @@ class TarifDetayFragment : Fragment() {
         tasarim = FragmentTarifDetayBinding.inflate(inflater, container, false)
 
 
-        tasarim.toolbarTarifDetay.title = "Tarif"
+
         (activity as AppCompatActivity).setSupportActionBar(tasarim.toolbarTarifDetay)
 
 
@@ -47,7 +47,7 @@ class TarifDetayFragment : Fragment() {
 
         // ViewModel tarafından gönderilen verileri gözlemle
             viewModel.tarifDetayLiveData.observe(viewLifecycleOwner) { detay ->
-            tasarim.textViewTarifAd.text = detay.recipe.name
+            tasarim.textViewTarifAd.title = detay.recipe.name
             tasarim.textViewTarifYapilis.text = detay.recipe.description
 
 

@@ -56,19 +56,22 @@ class TarifGuncelleFragment : Fragment() {
             val name = tasarim.editTextTarifAd.text.toString()
             val description = tasarim.textViewTarifYapilis.text.toString()
 
+            val tarif = Tarifler(gelenTarif, name, description)
 
             if (!name.equals("") && !description.equals("")) {
                 alert.setMessage("${name.uppercase()} Güncellensin mi?")
+
+
                 alert.setPositiveButton("Evet"){dialog,which ->
-                    val tarif = Tarifler(gelenTarif, name, description)
                     buttonGuncelle(tarif)
+
                     Toast.makeText(
                         requireContext(),
                         "${name.uppercase()} Güncellendi",
                         Toast.LENGTH_LONG
                     ).show()
                 }
-
+                alert.show()
             }else{
                 alert.setNegativeButton("Hayır"){dialog,which ->
                     Toast.makeText(
@@ -77,7 +80,7 @@ class TarifGuncelleFragment : Fragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
-               alert.show()
+
             }
         }
         return tasarim.root
