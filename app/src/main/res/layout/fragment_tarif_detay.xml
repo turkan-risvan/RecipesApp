@@ -4,11 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAEAD3"
-    android:backgroundTint="#FAEAD3"
     tools:context=".ui.fragment.TarifDetayFragment">
-
-
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -21,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorAccent"
             app:expandedTitleTextColor="#ffff"
-            app:contentScrim="#FF9800"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="Meal name">
 
@@ -39,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 app:layout_collapseMode="pin"
-                app:titleTextColor="@color/white" />
+                app:titleTextColor="#FFFFFF" />
 
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -64,6 +60,7 @@
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
+                android:layout_marginBottom="30dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginEnd="30dp"
                 app:cardCornerRadius="10dp"
@@ -135,7 +132,8 @@
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="60dp"
                         android:layout_marginBottom="15dp"
-                        android:text="description" />
+                        android:text="description"
+                        android:textColor="@color/colorText" />
                 </ScrollView>
 
             </androidx.cardview.widget.CardView>
@@ -150,6 +148,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="5dp"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
