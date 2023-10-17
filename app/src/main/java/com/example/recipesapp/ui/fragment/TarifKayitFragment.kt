@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.example.recipesapp.data.entity.Tarifler
 import com.example.recipesapp.databinding.FragmentTarifKayitBinding
@@ -24,6 +25,8 @@ class TarifKayitFragment : Fragment() {
         tasarim = FragmentTarifKayitBinding.inflate(inflater, container, false)
 
         tasarim.toolbarTarifKayit.title = "Yemek Kayıt"
+
+        (activity as AppCompatActivity).setSupportActionBar(tasarim.toolbarTarifKayit)
 
         val alert = AlertDialog.Builder(requireContext())
         tasarim.buttonKaydet.setOnClickListener {

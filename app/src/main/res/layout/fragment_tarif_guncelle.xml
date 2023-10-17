@@ -24,12 +24,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
-        android:layout_width="325dp"
-        android:layout_height="62dp"
-        app:boxBackgroundColor="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="90dp"
         android:layout_marginEnd="35dp"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarTarifGuncelle">
@@ -38,19 +38,18 @@
             android:id="@+id/editTextTarifAd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tarif Adı Giriniz " />
+            android:hint="Tarif Adı Giriniz" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="325dp"
-        android:layout_height="300dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="9dp"
-        app:boxBackgroundColor="@color/white"
         android:layout_marginEnd="35dp"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
@@ -59,7 +58,7 @@
             android:id="@+id/textViewTarifYapilis"
             android:layout_width="match_parent"
             android:layout_height="290dp"
-
+            android:gravity="start"
             android:hint="Tarifin yapılışını Giriniz" />
     </com.google.android.material.textfield.TextInputLayout>
 

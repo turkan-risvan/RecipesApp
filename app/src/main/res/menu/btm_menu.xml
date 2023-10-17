@@ -3,13 +3,13 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:title="Anasayfa" />
     <item
         android:id="@+id/favoritesFragment"
-        android:title="Favorites"
-        android:icon="@drawable/ic_favorites" />
+        android:icon="@drawable/ic_favorites"
+        android:title="Favoriler" />
     <item
         android:id="@+id/categoriesFragment"
-        android:title="Categories"
-        android:icon="@drawable/ic_categories" />
+        android:icon="@drawable/ic_categories"
+        android:title="Kategoriler" />
 </menu>
