@@ -79,7 +79,7 @@ class TariflerAdapter(
         val resimUrl = resimList[adjustedPosition]
         Glide.with(mContext)
             .load(resimUrl)
-            .into(t.imageView5)
+            .into(t.imageViewYemek)
     }
 
 }

@@ -48,6 +48,8 @@
         android:label="SplashScreenFragment" >
         <action
             android:id="@+id/splashAnasayayaGecis"
-            app:destination="@id/anasayfaFragment" />
+            app:destination="@id/anasayfaFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
